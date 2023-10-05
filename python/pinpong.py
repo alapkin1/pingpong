@@ -27,7 +27,7 @@ class Rocket(GameSprite):
         keys_pressed = key.get_pressed()   
         if keys_pressed[K_w] and self.rect.y > 0:
             self.rect.y -= self.speed_y
-        if keys_pressed[K_s] and self.rect.y < 635:
+        if keys_pressed[K_s] and self.rect.y < 350:
             self.rect.y += self.speed_y
 
 class Rocket2(GameSprite):
@@ -35,7 +35,7 @@ class Rocket2(GameSprite):
         keys_pressed = key.get_pressed()   
         if keys_pressed[K_UP] and self.rect.y > 0:
             self.rect.y -= self.speed_y 
-        if keys_pressed[K_DOWN] and self.rect.y < 635:
+        if keys_pressed[K_DOWN] and self.rect.y < 350:
             self.rect.y += self.speed_y
 
 class Ball(GameSprite):
@@ -92,6 +92,19 @@ while game:
 
         window.blit(pl1_score, (0, 25))
         window.blit(pl2_score, (0, 50))
+
+
+    if score_l == 3:
+        finish = False
+        form = font.SysFont('Arial', 50)
+        pl_fin = form.render('Player2 win', True, [0, 0, 0])
+        window.blit(pl_fin, (250, 250))
+    if score_r == 3:
+        finish = False
+        form = font.SysFont('Arial', 50)
+        pl_fin1 = form.render('Player1 win', True, [0, 0, 0])
+        window.blit(pl_fin1, (250, 250))
+
 
 
     display.update()
